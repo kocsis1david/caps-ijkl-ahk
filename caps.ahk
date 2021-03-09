@@ -100,3 +100,42 @@ else if GetKeyState("Alt", "D")
 else
     Send {Delete}
 return
+
+CapsLock & u::
+if GetKeyState("Shift", "D")
+    if GetKeyState("Alt", "D")
+        Send +!{Home}
+    else if GetKeyState("Ctrl", "D")
+        Send +^{Home}
+    else
+        Send +{Home}
+else if GetKeyState("Ctrl", "D")
+    if (GetKeyState("Alt", "D"))
+        Send ^!{Home}
+    else
+        Send ^{Home}
+else if GetKeyState("Alt", "D")
+    Send !{Home}
+else
+    Send {Home}
+return
+
+CapsLock & o::
+if GetKeyState("Shift", "D")
+    if GetKeyState("Alt", "D")
+        Send +!{End}
+    else if GetKeyState("Ctrl", "D")
+        Send +^{End}
+    else
+        Send +{End}
+else if GetKeyState("Ctrl", "D")
+    if (GetKeyState("Alt", "D"))
+        Send ^!{End}
+    else
+        Send ^{End}
+else if GetKeyState("Alt", "D")
+    Send !{End}
+else
+    Send {End}
+return
+
