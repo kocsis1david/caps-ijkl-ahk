@@ -6,6 +6,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 SetCapsLockState, AlwaysOff
 
+CapsLock & Space::
+if GetKeyState("CapsLock", "T")
+    SetCapsLockState, AlwaysOff
+else
+    SetCapsLockState, AlwaysOn
+return
+
 CapsLock & i::
 if GetKeyState("Shift", "D")
     if GetKeyState("Alt", "D")
