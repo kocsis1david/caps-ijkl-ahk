@@ -41,3 +41,50 @@ CapsLock & o::
 Send {Blind}{End}
 return
 
+CapsLock & 1::
+Send {Blind}{F1}
+return
+
+CapsLock & 2::
+Send {Blind}{F3}
+return
+
+CapsLock & 3::
+Send {Blind}{F3}
+return
+
+CapsLock & 4::
+Send {Blind}{F4}
+return
+
+CapsLock & 5::
+Send {Blind}{F5}
+return
+
+CapsLock & 6::
+Send {Blind}{F6}
+return
+
+CapsLock & 7::
+Send {Blind}{F7}
+return
+
+CapsLock & 8::
+Send {Blind}{F8}
+return
+
+CapsLock & 9::
+Send {Blind}{F9}
+return
+
+CapsLock & 0::
+Send {Blind}{F10}
+return
+
+CapsLock & -::
+Send {Blind}{F11}
+return
+
+CapsLock & =::
+Send {Blind}{F12}
+return
