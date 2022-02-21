@@ -89,3 +89,11 @@ return
 CapsLock & =::
 Send {Blind}{F12}
 return
+
+CapsLock & m::
+Send {Blind}!q!q
+return
+
+CapsLock & .::
+Send {Blind}!q!w
+return
