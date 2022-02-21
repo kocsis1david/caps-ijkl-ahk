@@ -1,41 +1,40 @@
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 
 SetCapsLockState, AlwaysOff
 
 CapsLock & i::
-Send {Blind}{Up}
+  Send {Blind}{Up}
 return
 
 CapsLock & k::
-Send {Blind}{Down}
+  Send {Blind}{Down}
 return
 
 CapsLock & j::
-Send {Blind}{Left}
+  Send {Blind}{Left}
 return
 
 CapsLock & l::
-Send {Blind}{Right}
+  Send {Blind}{Right}
 return
 
 CapsLock & Backspace::
-Send {Blind}{Delete}
+  Send {Blind}{Delete}
 return
 
 CapsLock & u::
-Send {Blind}{Home}
+  Send {Blind}{Home}
 return
 
 CapsLock & o::
-Send {Blind}{End}
+  Send {Blind}{End}
 return
 
 CapsLock & p::
-Send {Blind}{PgUp}
+  Send {Blind}{PgUp}
 return
 
 CapsLock & `;::
@@ -43,57 +42,70 @@ Send {Blind}{PgDn}
 return
 
 CapsLock & 1::
-Send {Blind}{F1}
+  Send {Blind}{F1}
 return
 
 CapsLock & 2::
-Send {Blind}{F3}
+  Send {Blind}{F3}
 return
 
 CapsLock & 3::
-Send {Blind}{F3}
+  Send {Blind}{F3}
 return
 
 CapsLock & 4::
-Send {Blind}{F4}
+  Send {Blind}{F4}
 return
 
 CapsLock & 5::
-Send {Blind}{F5}
+  Send {Blind}{F5}
 return
 
 CapsLock & 6::
-Send {Blind}{F6}
+  Send {Blind}{F6}
 return
 
 CapsLock & 7::
-Send {Blind}{F7}
+  Send {Blind}{F7}
 return
 
 CapsLock & 8::
-Send {Blind}{F8}
+  Send {Blind}{F8}
 return
 
 CapsLock & 9::
-Send {Blind}{F9}
+  Send {Blind}{F9}
 return
 
 CapsLock & 0::
-Send {Blind}{F10}
+  Send {Blind}{F10}
 return
 
 CapsLock & -::
-Send {Blind}{F11}
+  Send {Blind}{F11}
 return
 
 CapsLock & =::
-Send {Blind}{F12}
+  Send {Blind}{F12}
 return
 
 CapsLock & m::
-Send {Blind}!q!q
+  if GetKeyState("Shift", "P") {
+    Send !q
+    Sleep 1
+    Send !e
+  } else {
+    Send !q!q
+  }
 return
 
 CapsLock & .::
-Send {Blind}!q!w
+  if GetKeyState("Shift", "P") {
+    Send !q
+    Sleep 1
+    Send !r
+  } else {
+    Send !q!w
+  }
 return
+
