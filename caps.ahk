@@ -1,111 +1,64 @@
-#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
+#Requires AutoHotkey v2.0
 
-SetCapsLockState, AlwaysOff
+SetCapsLockState "AlwaysOff"
 
-CapsLock & i::
-  Send {Blind}{Up}
-return
+modes := ["default", "kam"]
+mode := "default"
 
-CapsLock & k::
-  Send {Blind}{Down}
-return
+SwitchMode(m) {
+    global mode := m
+    ; TrayTip "switched to mode `"" mode "`""
+}
 
-CapsLock & j::
-  Send {Blind}{Left}
-return
+CapsLock & Tab::{
+    index := -1
 
-CapsLock & l::
-  Send {Blind}{Right}
-return
+    For i, val in modes {
+        If (val = mode) {
+            index := i
+        }
+    }
 
-CapsLock & Backspace::
-  Send {Blind}{Delete}
-return
+    index := Mod(index, modes.Length) + 1
+    SwitchMode(modes[index])
+}
 
-CapsLock & u::
-  Send {Blind}{Home}
-return
+#HotIf mode = "default"
+CapsLock & i::Up
+CapsLock & k::Down
+CapsLock & j::Left
+CapsLock & l::Right
+CapsLock & Backspace::Delete 
+CapsLock & u::Home
+CapsLock & o::End
+CapsLock & p::PgUp
+CapsLock & `;::PgDn
+#HotIf
 
-CapsLock & o::
-  Send {Blind}{End}
-return
+#HotIf mode = "kam"
+w::Up
+s::Down
+a::Left
+d::Right
+q::-
+e::+
+z::s
+x::l
+c::h
+r::9
+f::8
+CapsLock & Space::x
+#HotIf
 
-CapsLock & p::
-  Send {Blind}{PgUp}
-return
-
-CapsLock & `;::
-Send {Blind}{PgDn}
-return
-
-CapsLock & 1::
-  Send {Blind}{F1}
-return
-
-CapsLock & 2::
-  Send {Blind}{F3}
-return
-
-CapsLock & 3::
-  Send {Blind}{F3}
-return
-
-CapsLock & 4::
-  Send {Blind}{F4}
-return
-
-CapsLock & 5::
-  Send {Blind}{F5}
-return
-
-CapsLock & 6::
-  Send {Blind}{F6}
-return
-
-CapsLock & 7::
-  Send {Blind}{F7}
-return
-
-CapsLock & 8::
-  Send {Blind}{F8}
-return
-
-CapsLock & 9::
-  Send {Blind}{F9}
-return
-
-CapsLock & 0::
-  Send {Blind}{F10}
-return
-
-CapsLock & -::
-  Send {Blind}{F11}
-return
-
-CapsLock & =::
-  Send {Blind}{F12}
-return
-
-CapsLock & m::
-  if GetKeyState("Shift", "P") {
-    Send !q
-    Sleep 1
-    Send !e
-  } else {
-    Send !q!q
-  }
-return
-
-CapsLock & .::
-  if GetKeyState("Shift", "P") {
-    Send !q
-    Sleep 1
-    Send !r
-  } else {
-    Send !q!w
-  }
-return
-
+CapsLock & 1::F1
+CapsLock & 2::F3
+CapsLock & 3::F3
+CapsLock & 4::F4
+CapsLock & 5::F5
+CapsLock & 6::F6
+CapsLock & 7::F7
+CapsLock & 8::F8
+CapsLock & 9::F9
+CapsLock & 0::F10
+CapsLock & -::F11
+CapsLock & =::F12
